@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:XFExamples" 
+    x:Class="XFExamples.MainPage"
+    xmlns:VM="clr-namespace:XFExamples.ViewModels">
+    
+    <ContentPage.BindingContext>
+        <VM:MainPageViewModel />
+    </ContentPage.BindingContext>
+    
+   <Grid>
+        <Button 
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            WidthRequest="200"
+            HeightRequest="70"
+            Text="{Binding ButtonText}" 
+            Command="{Binding NavigateToDetailPageCommand}"/>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="XFExamples.Views.DetailPage"
+    xmlns:VM="clr-namespace:XFExamples.ViewModels">
+
+    <ContentPage.BindingContext>
+        <VM:DetailPageViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Label
+                Grid.Row="0"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Text="{Binding LabelText}"/>
+            <Button
+                Grid.Row="1"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Text="{Binding NavigateBackText}"
+                Command="{Binding NavigateBackCommand}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

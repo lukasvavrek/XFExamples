@@ -1,6 +1,7 @@
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFExamples.Services;
+using XFExamples.Services.MessageBroker;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace XFExamples
@@ -11,7 +12,11 @@ namespace XFExamples
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+			DependencyService.Register<INavigationService, NavigationService>();
+			DependencyService.Register<IMessageBrokerService, MessageBrokerService>();
+
+			MainPage = new NavigationPage(new MainPage());
+			DependencyService.Get<INavigationService>().Navigation = MainPage.Navigation;
         }
 
         protected override void OnStart()
